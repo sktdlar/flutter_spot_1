@@ -73,7 +73,7 @@ class _AuthPageState extends State<AuthPage> {
                           );
                           if (user != null) {
                             Toast.show('Вы успешно вошли');
-                            Navigator.popAndPushNamed(context, '/reg');
+                            Navigator.popAndPushNamed(context, '/base');
                           } else {
                             Toast.show('Неверный логин или пароль');
                             Navigator.pop(context);
