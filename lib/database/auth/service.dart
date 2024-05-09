@@ -15,6 +15,7 @@ String verificationId = '';
 
       return UserModel.fromFirebase(user);
     } catch (e) {
+      print('Ошибка при входе: $e');
       return null;
     }
   }
