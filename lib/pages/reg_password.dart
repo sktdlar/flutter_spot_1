@@ -1,23 +1,23 @@
+import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_spot_1/database/auth/service.dart';
-import 'package:flutter_spot_1/database/collections/users_collections.dart';
 import 'package:flutter_spot_1/theme/themeLight.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class RegistrationPage extends StatefulWidget {
-  const RegistrationPage({super.key});
+class RegistrationPasswordPage extends StatefulWidget {
+  const RegistrationPasswordPage({super.key});
 
   @override
-  State<RegistrationPage> createState() => _RegistrationPageState();
+  State<RegistrationPasswordPage> createState() => _RegistrationPasswordPageState();
+  
 }
-
-class _RegistrationPageState extends State<RegistrationPage> {
-  TextEditingController phoneNumberController = TextEditingController();
-  AuthService authService = AuthService();
-  UsersCollection usersCollection = UsersCollection();
-  bool isHintHided = false;
-
+bool seePassword = false;
+String updateObscure(String string){
+return _obscuringCharacter = String.fromCharCode(Random().nextInt(122 - 97 + 1) + 97);
+}
+  List<String> symbols = ['@', '#', '&'];
+var _obscuringCharacter = String.fromCharCode(Random().nextInt(122 - 97 + 1) + 97);
+class _RegistrationPasswordPageState extends State<RegistrationPasswordPage> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -54,11 +54,13 @@ class _RegistrationPageState extends State<RegistrationPage> {
                           height: 25,
                         ),
                         Text(
-                          "Введите почту",
+                          "Придумайте сложный    пароль",
+                          textAlign: TextAlign.center,
                           style: TextStyle(
                               color: Colors.white,
                               fontWeight: FontWeight.bold,
                               fontSize: 24,
+                              
                               fontFamily: GoogleFonts.montserrat().fontFamily),
                         ),
                         const SizedBox(
@@ -67,7 +69,7 @@ class _RegistrationPageState extends State<RegistrationPage> {
                         SizedBox(
                           width: MediaQuery.of(context).size.width * 0.85,
                           child: Text(
-                            "Ваша почта будет использоваться для доступа к аккаунту.",
+                            "Пароль поможет сохранить ваш аккаунт в безопасности",
                             textAlign: TextAlign.center,
                             style: TextStyle(
                                 color: Colors.white,
@@ -83,6 +85,11 @@ class _RegistrationPageState extends State<RegistrationPage> {
                           width: MediaQuery.of(context).size.width * 0.9,
                           height: 55,
                           child: TextField(
+                            obscureText: !seePassword,
+                            obscuringCharacter: "*",
+                            onChanged: (value) => setState(() {
+                              // _obscuringCharacter = symbols[ Random().nextInt(symbols.length)];
+                            }),
                             style: TextStyle(
                                 fontFamily:
                                     GoogleFonts.montserrat().fontFamily),
@@ -90,8 +97,15 @@ class _RegistrationPageState extends State<RegistrationPage> {
                               fillColor: Colors.white,
                               filled: true,
                               border: InputBorder.none,
-                              prefixIcon:const Icon(Icons.mail),
-                              hintText: "Введите почту",
+                              prefixIcon: const Icon(Icons.password),
+                              suffixIcon:  IconButton(icon: seePassword? const Icon(Icons.visibility) : const Icon(Icons.visibility_off), 
+                              onPressed: () => {
+                                setState(() {
+                                  seePassword = !seePassword;
+                                }),
+                              },
+                              ),
+                              hintText: "Введите пароль",
                               hintStyle: TextStyle(
                                   color: Colors.black,
                                   fontFamily:
@@ -120,9 +134,7 @@ class _RegistrationPageState extends State<RegistrationPage> {
                               decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(25)),
                               child: ElevatedButton(
-                                onPressed: () {
-                                  Navigator.popAndPushNamed(context, '/reg_pass');
-                                },
+                                onPressed: () {},
                                 style: ButtonStyle(
                                   shape: MaterialStatePropertyAll(
                                     RoundedRectangleBorder(
@@ -152,5 +164,6 @@ class _RegistrationPageState extends State<RegistrationPage> {
         ),
       ),
     );
+  
   }
 }

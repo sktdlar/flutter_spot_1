@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 ThemeData lightTheme = ThemeData(
   canvasColor: Colors
-      .transparent, // Чтобы прозрачность применялась к другим элементам, таким как AppBar и BottomNavigationBar
+      .transparent, 
   elevatedButtonTheme: ElevatedButtonThemeData(
     style: ButtonStyle(
       foregroundColor:
           const MaterialStatePropertyAll(Color.fromARGB(255, 255, 255, 255)),
-      //backgroundColor: const MaterialStatePropertyAll(Colors.blueGrey),
       shape: MaterialStatePropertyAll(RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(10),
       )),
@@ -35,19 +35,23 @@ ThemeData lightTheme = ThemeData(
     color: Colors.blueGrey,
     shape: OutlineInputBorder(borderRadius: BorderRadius.circular(10)),
   ),
+  textTheme: TextTheme(
+        
+
+
+  )
 );
 
 class GradientBackground extends StatelessWidget {
   final Widget child;
 
   GradientBackground({required this.child});
-
   @override
   Widget build(BuildContext context) {
     return Stack(
       children: [
         Container(
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
             gradient: LinearGradient(
               begin: Alignment.topLeft,
               end: Alignment.bottomRight,
