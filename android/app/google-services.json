@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "249841653632",
+    "project_id": "spotproject-ce8b3",
+    "storage_bucket": "spotproject-ce8b3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:249841653632:android:e82121d3bc2a375ffd5365",
+        "android_client_info": {
+          "package_name": "com.example.flutter_spot_1"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAvdAKlUbxaCDLFS5XAYwrGyd-_Av1hls8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
